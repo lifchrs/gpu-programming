@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "../../gpu_utils.cu"
 
-
-
 __global__ 
 void vecAddKernel(float* A, float* B, float *C, int n){
   int i = blockDim.x*blockIdx.x + threadIdx.x;
@@ -55,6 +53,7 @@ int main(){
     A[i] = i;
     B[i] = i + 1;
   }
+  
   vecAdd(A, B, C, n);
 
   free(A);
